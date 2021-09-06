@@ -1,0 +1,74 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Ajout d'un patient</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/variables.css">
+</head>
+<body>
+    <header>
+        <nav class="app-header-menu">
+            <ul class="app-header-menu__links">
+                <li><button>HOME</button></li>
+                <li><button>LISTE PATIENTS</button></li>
+                <li><button>AJOUTER UN PATIENT</button></li>
+                <li><button>CONTACTS</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="app_main__login_form">
+        <h1 th:text="${titre}" ></h1>
+        <hr>
+        <div>
+            <p> insérer les informations puis cliquer sur envoyer</p>
+            id|nom   |prenom    |email           |telephone     |ville|photo
+        </div>
+        <form name="monForm">
+            <div class="form-line">
+                <label>Nom *</label>
+                <input type="text" name="nom" placeholder="Votre nom" required>
+            </div>
+            <div class="form-line">
+                <label>Prénom *</label>
+                <input type="text" name="prenom" placeholder="Votre prénom" required>
+            </div>
+
+            <div class="form-line">
+                <label>Telephone </label>
+                <input type="tel" name="telephone" placeholder="06 56 78 89 09" >
+            </div>
+
+            <div class="form-line">
+                <label>Email * </label>
+                <input type="email" name="email" placeholder="email@em.ail" required>
+            </div>
+
+            <div class="form-line">
+                <label>Photo link </label>
+                <input type="text" name="photo" placeholder="Votre adresse" >
+            </div>
+
+            <div class="form-line">
+                <label>Pays *</label>
+                <select name="pays" required>
+                    <option value="fr">France</option>
+                    <option value="us">Etats Unis</option>
+                </select>
+            </div>
+
+            <div class="form-line">
+                <label>Ville *</label>
+                <select name="ville" required>
+                    <option value="par">Paris</option>
+                    <option value="lil">Lille</option>
+                </select>
+            </div>
+
+            <div class="form-line">
+                <button type="submit">Envoyer</button>
+            </div>
+
+        </form>
+    </main>
+</body>
+</html>

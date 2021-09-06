@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Built-By: myMac
+Build-Jdk: version 16.0.1
+Implementation-Title: patient
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.example
+Main-Class: ${start-class}
+

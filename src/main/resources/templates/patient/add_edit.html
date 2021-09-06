@@ -1,0 +1,72 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Ajout d'un patient</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/variables.css">
+</head>
+<body>
+    <header>
+        <nav class="app-header-menu">
+            <ul class="app-header-menu__links">
+                <li><button>HOME</button></li>
+                <li><button>LISTE PATIENTS</button></li>
+                <li><button>AJOUTER UN PATIENT</button></li>
+                <li><button>CONTACTS</button></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="app-nav-titles">
+        <h1 th:text="${titre}" ></h1>
+        <h2> <a href="/patient/all">Retourner vers la liste des patients par ici</a> </h2>
+    </div>
+    <main class="app_main__login_form">
+        <h1 th:text="${titre}" ></h1>
+        <hr>
+        <div>
+            <p> insérer les informations puis cliquer sur envoyer</p>
+        </div>
+        <form name="monForm" method="post">
+            <div class="form-line">
+                <label>Nom *</label>
+                <input type="text" th:value="${patient.getNom()}" name="nom" placeholder="Votre nom" required>
+            </div>
+            <div class="form-line">
+                <label>Prénom *</label>
+                <input type="text" th:value="${patient.getPrenom()}" name="prenom" placeholder="Votre prénom" required>
+            </div>
+
+            <div class="form-line">
+                <label>Telephone </label>
+                <input type="tel" th:value="${patient.getTelephone()}" name="telephone" placeholder="06 56 78 89 09" >
+            </div>
+
+            <div class="form-line">
+                <label>Email * </label>
+                <input type="email" th:value="${patient.getEmail()}" name="email" placeholder="email@em.ail" required>
+            </div>
+
+            <div class="form-line">
+                <label>Photo link </label>
+                <input type="text" th:value="${patient.getPhoto()}" name="photo" placeholder="Votre adresse" >
+            </div>
+
+            <div class="form-line">
+                <label>Ville *</label>
+                <select name="ville_depuis_template" required>
+                    <option>Selectionner une ville</option>
+                    <option th:each="ville : ${villes}"
+                            th:value="${ville.id}"
+                            th:utext="${ville.nom}"
+                            th:selected="${ville.id == patient.ville?.id}"
+                    ></option>
+                </select>
+            </div>
+
+            <div class="form-line">
+                <button type="submit">Envoyer</button>
+            </div>
+
+        </form>
+    </main>
+</body>
+</html>

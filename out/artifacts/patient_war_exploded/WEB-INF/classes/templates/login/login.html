@@ -1,0 +1,52 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/variables.css">
+
+</head>
+<body>
+<header>
+
+    <nav class="app-header-menu">
+        <ul class="app-header-menu__links">
+            <li><button >HOME</button></li>
+            <li><button disabled>LISTE PATIENTS</button></li>
+            <li><button disabled>AJOUTER UN PATIENT</button></li>
+            <li><button>CONTACTS</button></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="app_main__login_form">
+    <h1 th:text="${titre}" ></h1>
+    <hr>
+    <div>
+        <p>Enter vos informations afin d'acceder à votre espace personnel </p>
+    </div>
+    <form name="monForm">
+        <div class="form-line">
+            <label>Email *</label>
+            <input type="text" name="mail" placeholder="Votre email" required>
+        </div>
+        <div class="form-line">
+            <label>Mot de passe *</label>
+            <input type="password" name="password" placeholder="mot de passe " required>
+        </div>
+
+
+<!--        <div class="form-line">-->
+<!--            <button type="submit">Se connecter</button>-->
+<!--        </div>-->
+
+        <div class="form-line">
+            <button type="submit">
+                <a href="/patient/all">Se connecter</a>
+            </button>
+
+        </div>
+    </form>
+</main>
+
+</body>
+</html>

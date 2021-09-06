@@ -1,0 +1,25 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Liste patients</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/variables.css">
+</head>
+<body>
+<header>
+
+    <nav class="app-header-menu">
+        <ul class="app-header-menu__links">
+            <li><button>HOME</button></li>
+            <li><button>LISTE PATIENTS</button></li>
+            <li><button>AJOUTER UN PATIENT</button></li>
+            <li><button>CONTACTS</button></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <h1 th:text="${titre}" ></h1>
+</main>
+
+
+</body>
+</html>

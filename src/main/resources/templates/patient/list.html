@@ -1,0 +1,77 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Liste patients</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/variables.css">
+</head>
+<body>
+<header>
+
+    <nav class="app-header-menu">
+        <ul class="app-header-menu__links">
+            <li><button>HOME</button></li>
+            <li><button>LISTE PATIENTS</button></li>
+            <li><button>AJOUTER UN PATIENT</button></li>
+            <li><button>CONTACTS</button></li>
+            <li><button><a href="/logout" >Log OUT</a></button></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <div class="app-nav-titles">
+        <h1 th:text="${titre}" ></h1>
+        <h2> <a href="/patient/add">Ajouter un nouveau patient par ici</a> </h2>
+    </div>
+
+
+    <table class="app-table">
+        <thead>
+            <tr>
+                <th>Nom et prenom </th>
+                <th>Ville</th>
+                <th colspan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="patient : ${patients}">  <!-- Boucle for sur la list patients-->
+                <td th:utext="${patient.getNom()}"></td>
+                <td th:utext="${patient.ville?.nom}"></td>
+
+                <td>
+                    <button class="app-button__small app-button__warning">
+                        <a class="app-button__warning" th:href="@{/patient/edit/{id} (id=${patient.getId()} )}">Edit</a>
+                    </button>
+                </td>
+                <td>
+                    <button class="app-button__small app-button__danger">
+                        <a th:href="@{/patient/delete/{id}(id=${patient.id})}"
+                           th:data-confirm-delete="|Êtes-vous sûr de vouloir supprimer ce patient ${patient.nom}?|"
+                           onclick="return confirm(this.getAttribute('data-confirm-delete'))"
+                           class="app-button__danger"
+                        >Delete
+                        </a>
+                    </button>
+
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+    <!--    <th:block th:each="patient : ${patients}">-->
+
+    <!--        <h3 th:utext="${patient}"></h3>-->
+
+    <!--    </th:block>-->
+
+<!--    <th:block th:each="ville : ${villes}">   &lt;!&ndash; Boucle for sur la list villes&ndash;&gt;-->
+
+<!--        <th:block th:if="${ville.getId() == patient.getVille().getId()}"> &lt;!&ndash; Condition egalité des IDs&ndash;&gt;-->
+<!--            <td th:utext="${ville.getNom()}"></td>-->
+<!--        </th:block>-->
+
+<!--    </th:block>-->
+</main>
+
+
+</body>
+</html>
